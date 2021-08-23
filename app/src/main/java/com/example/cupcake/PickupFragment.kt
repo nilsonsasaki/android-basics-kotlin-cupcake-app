@@ -16,7 +16,6 @@
 package com.example.cupcake
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,8 +49,8 @@ class PickupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            viewModel = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
+            viewModel = sharedViewModel
             pickupFragment = this@PickupFragment
         }
     }
@@ -60,13 +59,12 @@ class PickupFragment : Fragment() {
      * Navigate to the next screen to see the order summary.
      */
     fun goToNextScreen() {
-        Log.d("Pickup Fragment", "goToNextScreen call")
         findNavController().navigate(R.id.action_pickupFragment_to_summaryFragment)
     }
 
     fun cancelOrder() {
         sharedViewModel.resetOrder()
-        findNavController().navigate(R.id.action_flavorFragment_to_startFragment)
+        findNavController().navigate(R.id.action_pickupFragment_to_startFragment)
     }
 
     /**
