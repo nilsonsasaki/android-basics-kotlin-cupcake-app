@@ -16,7 +16,6 @@
 package com.example.cupcake
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,8 +49,8 @@ class FlavorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            viewModel = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
+            viewModel = sharedViewModel
             flavorFragment = this@FlavorFragment
         }
     }
@@ -60,7 +59,6 @@ class FlavorFragment : Fragment() {
      * Navigate to the next screen to choose pickup date.
      */
     fun goToNextScreen() {
-        Log.d("FlavorFragment","goToNextScreen call")
         findNavController().navigate(R.id.action_flavorFragment_to_pickupFragment)
     }
 
